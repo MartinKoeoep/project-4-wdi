@@ -12,18 +12,21 @@ import _ from 'lodash';
 import EventsIndex from '../../../src/components/events/Index';
 
 const users = [{
+  _id: 0,
   username: 'bianca',
   email: 'bianca@test.com',
   password: 'pass',
   passwordConfirmation: 'pass',
   tel: '+46702549294'
 },{
+  _id: 1,
   username: 'richard',
   email: 'richard@test.com',
   password: 'pass',
   passwordConfirmation: 'pass',
   tel: '+447762948257'
 },{
+  _id: 3,
   username: 'martin',
   email: 'martin@test.com',
   password: 'pass',
@@ -41,7 +44,6 @@ const data = [{
     date: '2018-07-13T15:15:00',
     votes: []
   }],
-  length: 120,
   address: '4 St Olaf\'s Road',
   location: { lat: 51.4798873, lng: -0.2107483 },
   privacy: 'Public',
@@ -59,7 +61,6 @@ const data = [{
     date: '2018-08-13T13:30:00',
     votes: []
   }],
-  length: 300,
   address: 'GA, Relay Building',
   location: { lat: 51.5153002, lng: -0.0746125 },
   privacy: 'Public',
@@ -69,7 +70,7 @@ const data = [{
   organizer: [users[2]._id]
 }];
 
-xdescribe('EventsIndex tests', () => {
+describe('EventsIndex tests', () => {
   let wrapper;
   let promise;
 
@@ -105,6 +106,7 @@ xdescribe('EventsIndex tests', () => {
   it('should render the correct data', done => {
     promise.then(() => {
       wrapper.update();
+      console.log(wrapper.debug());
       _.orderBy(data, 'name', 'asc').forEach((event, index) => {
         expect(wrapper.find('p').length).to.eq(6);
         expect(wrapper.find('Link').at(index).prop('to')).to.eq(`/events/${event._id}`);
