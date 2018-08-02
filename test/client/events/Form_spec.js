@@ -24,7 +24,6 @@ describe('EventsForm tests', () => {
           votes: []
         }],
         selectedTimes: [],
-        length: 120,
         address: '4 St Olaf\'s Road',
         location: { lat: 51.4798873, lng: -0.2107483 },
         privacy: 'Private',
@@ -47,10 +46,10 @@ describe('EventsForm tests', () => {
   it('should render the correct inputs', done => {
     expect(wrapper.find('[name="name"]').length).to.eq(1);
     expect(wrapper.find('[name="description"]').length).to.eq(1);
-    expect(wrapper.find('[name="length"]').length).to.eq(1);
+    expect(wrapper.find('[name="address"]').length).to.eq(1);
     expect(wrapper.find('[name="privacy"]').length).to.eq(1);
     expect(wrapper.find('[name="image"]').length).to.eq(1);
-    expect(wrapper.find('button').length).to.eq(2);
+    expect(wrapper.find('button').length).to.eq(4);
     done();
   });
 
@@ -58,7 +57,7 @@ describe('EventsForm tests', () => {
   it('should populate the form', done => {
     expect(wrapper.find({ value: 'Movie Night', name: 'name' }).length).to.eq(1);
     expect(wrapper.find({ value: 'Watching films', name: 'description' }).length).to.eq(1);
-    expect(wrapper.find({ value: 120, name: 'length' }).length).to.eq(1);
+    expect(wrapper.find({ value: '4 St Olaf\'s Road', name: 'address' }).length).to.eq(1);
     expect(wrapper.find({ value: 'Private', name: 'privacy' }).length).to.eq(1);
     expect(wrapper.find({ value: 'http://www.thecumberlandarms.co.uk/wp/wp-content/uploads/2015/04/Cumby-Film-Night-logo-2016-850px-850x478.jpg', name: 'image' }).length).to.eq(1);
     done();

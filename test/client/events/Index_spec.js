@@ -69,7 +69,7 @@ const data = [{
   organizer: [users[2]._id]
 }];
 
-describe('EventsIndex tests', () => {
+xdescribe('EventsIndex tests', () => {
   let wrapper;
   let promise;
 
